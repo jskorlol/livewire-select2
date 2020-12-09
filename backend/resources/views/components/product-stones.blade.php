@@ -7,27 +7,19 @@
     <td class="px-1 py-1 sm:px-2 whitespace-nowrap text-xs font-medium text-gray-500"
         wire:ignore>
         <div>
-            test ~~ key : {{$key}}
             <select
-                {{--                x-id="stones_{{ $key }}"--}}
+{{--                x-id="stones_{{ $key }}"--}}
                 x-data="{ amount: $wire.entangle('stones.{{ $key }}.stone_id').defer, anElement: null }"
-                {{--                x-data="{ amount: @entangle('stones.{{ $key }}.stone_id').defer, anElement: null }"--}}
+{{--                                x-data="{ amount: @entangle('stones.{{ $key }}.stone_id').defer, anElement: null }"--}}
                 x-init="$nextTick(() => {
-{{--                    $($el).select2('destroy');--}}
-                {{--                    if(!window.anElement_{{$key}}) {--}}
                     $($el).select2();
-
-
 {{--                    $($el).val(@this.stones[{{$key}}]['stone_id']).trigger('change');--}}
 
                     $($el).on('select2:select', function (e) {
                         console.log(e.params.data);
                         amount = e.params.data.id;
-{{--                                        @this.set('stones.{{$key}}.stone_id', e.params.data.id);--}}
+{{--                        @this.set('stones.{{$key}}.stone_id', e.params.data.id);--}}
                     });
-{{--                                    console.log(`on-{{$key}}`);--}}
-                {{--                                    }--}}
-
                     console.log(`hello-{{$key}}`);
                 });"
                 class="block w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-gray-900 focus:border-gray-900 text-xs"

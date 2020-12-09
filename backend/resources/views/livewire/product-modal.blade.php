@@ -1,5 +1,5 @@
 <div class="fixed z-40 inset-0 overflow-y-auto"
-     x-data="{ open: @entangle('showModal').defer }"
+     x-data="{ open: @entangle('showModal') }"
      x-show="open"
      x-cloak
      x-transition:enter="ease-out duration-300"
@@ -8,7 +8,18 @@
      x-transition:leave="ease-in duration-200"
      x-transition:leave-start="opacity-100"
      x-transition:leave-end="opacity-0"
-     x-init="$watch('open', function(value) { if(value === true) $nextTick(() => { $el.scrollTop = 0; $dispatch('open-event'); }); else console.log(`close`); })">
+     x-init="$watch('open', function(value) { if(value === true) { $nextTick(() => { $el.scrollTop = 0; $dispatch('open-event'); }); } else {
+     console.log(`close`);
+{{--     let nodes = document.querySelectorAll(`[data-id='stones']`);--}}
+{{--     console.log(nodes);--}}
+{{--     for(let i = 0, j = nodes.length; i < j; i++) {--}}
+{{--        nodes[i].remove()--}}
+{{--     }--}}
+{{--         document.querySelectorAll(`[data-id='stones']`).prototype.forEach.call( element, function( node ) {--}}
+{{--            node.parentNode.removeChild( node );--}}
+{{--        });--}}
+     }
+     })">
 
     <div class="fixed inset-0 transition-opacity" aria-hidden="true">
         <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
@@ -48,6 +59,8 @@
                                             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                                                 <div class="align-middle inline-block min-w-full sm:px-6 lg:px-8">
                                                     <div class="overflow-hidden border-b border-gray-200">
+                                                        count: {{ count($stones) }}
+                                                        @if(count($stones) > 0)
                                                         <table class="min-w-full divide-y divide-gray-200">
                                                             <thead>
                                                             <tr>
@@ -106,12 +119,11 @@
                                                             </tr>
                                                             </thead>
                                                             <tbody>
-                                                            count: {{ $count }}
-                                                            @if(count($stones) > 0)
+{{--                                                            @php dump($stones); @endphp--}}
                                                                 @foreach($stones as $key => $value)
+                                                                    {{ $key }}
                                                                     @include('components.product-stones', ['key'=>$key])
                                                                 @endforeach
-                                                            @endif
                                                             </tbody>
                                                             <tbody>
                                                             <tr class="bg-white hover:bg-gray-100 border-b">
@@ -152,6 +164,7 @@
                                                             </tr>
                                                             </tbody>
                                                         </table>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -176,7 +189,7 @@
                                             </label>
                                             <div class="mt-1">
                                                 <textarea class="shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full text-xs sm:text-sm border-gray-300 rounded-md"
-                                                          wire:model.defer="formData.memo"
+                                                          wire:model.defer="asdf"
                                                           placeholder="메모 (7200자 제한)"
                                                           maxlength="7200"
                                                           rows="6">

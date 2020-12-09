@@ -83,17 +83,44 @@ class ProductModal extends Component
 
     public function create()
     {
-        $this->reset('stones');
-        $this->reset('count');
-        $this->resetErrorBag();
-        $this->submit = 'create';
+//        $this->reset('stones');
+//        $this->reset('count');
+//        $this->resetErrorBag();
+//        $this->submit = 'create';
 
         $this->showModal = true;
     }
 
     public function submit()
     {
-        dd($this->stones);
+        $this->reset('stones');
+        $this->reset('count');
+        $this->resetErrorBag();
+        $this->submit = 'create';
+
+//        $this->showModal = false;
+//        dd($this->stones);
+    }
+
+    public function dehydrateShowModal($value)
+    {
+//        if($value === false) {
+//            $this->stones = [];
+//        }
+//        if(count($value) > 0) {
+////            dump($this->stones);
+//            $this->stones = [];
+////            dump($value);
+////            dump($this->stones);
+//        }
+    }
+
+    public function updatedShowModal($data)
+    {
+//        if($data === false) {
+//            $this->reset('stones');
+//            $this->count = 0;
+//        }
     }
 
     /**
