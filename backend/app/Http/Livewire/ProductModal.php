@@ -67,7 +67,7 @@ class ProductModal extends Component
         $this->count ++;
         $this->stones[] = [
             'type' => $type,
-            'stone_id' => '',
+            'stone_id' => 5,
             'name' => null,
             'main' => false,
             'amount' => '',
@@ -79,6 +79,11 @@ class ProductModal extends Component
             'memo' => '',
         ];
 //        dd($this->stones);
+    }
+
+    public function delStones()
+    {
+        array_pop($this->stones);
     }
 
     public function create()
@@ -93,10 +98,10 @@ class ProductModal extends Component
 
     public function submit()
     {
-        $this->reset('stones');
-        $this->reset('count');
-        $this->resetErrorBag();
-        $this->submit = 'create';
+//        $this->reset('stones');
+//        $this->reset('count');
+//        $this->resetErrorBag();
+//        $this->submit = 'create';
 
 //        $this->showModal = false;
 //        dd($this->stones);

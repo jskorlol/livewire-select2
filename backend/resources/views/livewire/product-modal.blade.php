@@ -49,16 +49,17 @@
                                 </button>
                             </div>
                             <div class="block mx-2 text-left mb-2">
-                                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">카타로그 관리</h3>
+                                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">modal</h3>
                                 <div class="mt-2" id="modal-content">
                                     <div class="mt-6 grid grid-cols-6 gap-y-3 gap-x-4">
                                         <div class="col-span-6">
                                             <label class="block text-sm font-medium text-gray-700">
-                                                스톤 정보
+                                                info
                                             </label>
                                             <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                                                 <div class="align-middle inline-block min-w-full sm:px-6 lg:px-8">
                                                     <div class="overflow-hidden border-b border-gray-200">
+                                                        @php dump($stones); @endphp
                                                         count: {{ count($stones) }}
                                                         @if(count($stones) > 0)
                                                         <table class="min-w-full divide-y divide-gray-200">
@@ -72,42 +73,42 @@
                                                                 <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
                                                                     rowspan="2"
                                                                     style="min-width:140px; max-width:280px; width:26%;">
-                                                                    스톤명
+                                                                    stone
                                                                 </th>
                                                                 <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
                                                                     rowspan="2"
                                                                     style="min-width:65px; width:3%;">
-                                                                    알수
+                                                                    -
                                                                 </th>
                                                                 <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
                                                                     rowspan="2"
                                                                     style="min-width:74px; width:6%;">
-                                                                    중량차감
+                                                                    -
                                                                 </th>
                                                                 <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
                                                                     rowspan="2"
                                                                     style="min-width:74px; width:6%;">
-                                                                    공임적용
+                                                                    -
                                                                 </th>
                                                                 <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
                                                                     rowspan="2"
                                                                     style="min-width:70px; width:6%;">
-                                                                    개당중량
+                                                                    -
                                                                 </th>
                                                                 <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
                                                                     rowspan="2"
                                                                     style="min-width:90px; width:6%;">
-                                                                    구매단가
+                                                                    -
                                                                 </th>
                                                                 <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
                                                                     colspan="{{ count($price) }}"
                                                                     style="min-width:230px; width:20%;">
-                                                                    등급별 판매단가
+                                                                    -
                                                                 </th>
                                                                 <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
                                                                     rowspan="2"
                                                                     style="min-width:140px; width:26%;">
-                                                                    설명
+                                                                    -
                                                                 </th>
                                                             </tr>
                                                             <tr>
@@ -121,47 +122,10 @@
                                                             <tbody>
 {{--                                                            @php dump($stones); @endphp--}}
                                                                 @foreach($stones as $key => $value)
-                                                                    {{ $key }}
+{{--                                                                    <livewire:stones :key="$key" :value="$value['stone_id']">--}}
+{{--                                                                    {{ $key }}--}}
                                                                     @include('components.product-stones', ['key'=>$key])
                                                                 @endforeach
-                                                            </tbody>
-                                                            <tbody>
-                                                            <tr class="bg-white hover:bg-gray-100 border-b">
-                                                                <td></td>
-                                                                <td class="px-1 py-2 sm:px-2 whitespace-nowrap text-xs text-gray-500">
-                                                                    소계
-                                                                </td>
-                                                                <td class="px-1 py-2 sm:px-2 whitespace-nowrap text-xs font-medium text-gray-500">
-                                                                    0
-                                                                </td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td class="px-1 py-2 sm:px-2 whitespace-nowrap text-xs font-medium text-gray-500">
-                                                                    자동계산
-                                                                </td>
-                                                                <td></td>
-                                                                @foreach($price as $key => $value)
-                                                                    <td></td>
-                                                                @endforeach
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr class="bg-white hover:bg-gray-100 border-b">
-                                                                <td></td>
-                                                                <td class="px-1 py-1 sm:px-2 whitespace-nowrap text-xs text-gray-500">
-                                                                    수동 차감중량
-                                                                </td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td class="px-1 py-1 sm:px-2 whitespace-nowrap text-xs sm:text-sm font-medium text-gray-500">
-
-                                                                </td>
-                                                                <td></td>
-                                                                @foreach($price as $key => $value)
-                                                                    <td></td>
-                                                                @endforeach
-                                                                <td></td>
-                                                            </tr>
                                                             </tbody>
                                                         </table>
                                                         @endif
@@ -172,13 +136,13 @@
                                                 <span class="flex rounded-md shadow-sm ml-3 w-auto">
                                                     <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-xs sm:text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                                                             wire:click="addStones(1)">
-                                                        기본 추가
+                                                        stones data add
                                                     </button>
                                                 </span>
                                                 <span class="flex rounded-md shadow-sm w-auto">
                                                     <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-xs sm:text-sm font-medium rounded-md text-white bg-red-400 hover:bg-red-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                                                            wire:click="addStones(2)">
-                                                        특수 추가
+                                                            wire:click="delStones()">
+                                                        stones data delete
                                                     </button>
                                                 </span>
                                             </div>
