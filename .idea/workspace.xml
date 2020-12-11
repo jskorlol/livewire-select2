@@ -160,7 +160,8 @@
       <option name="presentableId" value="Default" />
       <updated>1607477679273</updated>
       <workItem from="1607477680498" duration="1030000" />
-      <workItem from="1607478719413" duration="19950000" />
+      <workItem from="1607478719413" duration="28843000" />
+      <workItem from="1607670369010" duration="1182000" />
     </task>
     <servers />
   </component>
@@ -177,6 +178,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

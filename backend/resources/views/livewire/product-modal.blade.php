@@ -10,14 +10,6 @@
      x-transition:leave-end="opacity-0"
      x-init="$watch('open', function(value) { if(value === true) { $nextTick(() => { $el.scrollTop = 0; $dispatch('open-event'); }); } else {
      console.log(`close`);
-{{--     let nodes = document.querySelectorAll(`[data-id='stones']`);--}}
-{{--     console.log(nodes);--}}
-{{--     for(let i = 0, j = nodes.length; i < j; i++) {--}}
-{{--        nodes[i].remove()--}}
-{{--     }--}}
-{{--         document.querySelectorAll(`[data-id='stones']`).prototype.forEach.call( element, function( node ) {--}}
-{{--            node.parentNode.removeChild( node );--}}
-{{--        });--}}
      }
      })">
 
@@ -67,63 +59,13 @@
                                                             <tr>
                                                                 <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
                                                                     rowspan="2"
-                                                                    style="min-width:30px; width:1%;">
-                                                                    M
-                                                                </th>
-                                                                <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
-                                                                    rowspan="2"
                                                                     style="min-width:140px; max-width:280px; width:26%;">
                                                                     stone
                                                                 </th>
-                                                                <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
-                                                                    rowspan="2"
-                                                                    style="min-width:65px; width:3%;">
-                                                                    -
-                                                                </th>
-                                                                <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
-                                                                    rowspan="2"
-                                                                    style="min-width:74px; width:6%;">
-                                                                    -
-                                                                </th>
-                                                                <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
-                                                                    rowspan="2"
-                                                                    style="min-width:74px; width:6%;">
-                                                                    -
-                                                                </th>
-                                                                <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
-                                                                    rowspan="2"
-                                                                    style="min-width:70px; width:6%;">
-                                                                    -
-                                                                </th>
-                                                                <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
-                                                                    rowspan="2"
-                                                                    style="min-width:90px; width:6%;">
-                                                                    -
-                                                                </th>
-                                                                <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
-                                                                    colspan="{{ count($price) }}"
-                                                                    style="min-width:230px; width:20%;">
-                                                                    -
-                                                                </th>
-                                                                <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
-                                                                    rowspan="2"
-                                                                    style="min-width:140px; width:26%;">
-                                                                    -
-                                                                </th>
-                                                            </tr>
-                                                            <tr>
-                                                                @foreach($price as $key => $value)
-                                                                    <th scope="col" class="p-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap">
-                                                                        {{$value['name']}}
-                                                                    </th>
-                                                                @endforeach
                                                             </tr>
                                                             </thead>
                                                             <tbody>
-{{--                                                            @php dump($stones); @endphp--}}
                                                                 @foreach($stones as $key => $value)
-{{--                                                                    <livewire:stones :key="$key" :value="$value['stone_id']">--}}
-{{--                                                                    {{ $key }}--}}
                                                                     @include('components.product-stones', ['key'=>$key])
                                                                 @endforeach
                                                             </tbody>
@@ -146,20 +88,6 @@
                                                     </button>
                                                 </span>
                                             </div>
-                                        </div>
-                                        <div class="col-span-6">
-                                            <label class="block text-sm font-medium text-gray-700">
-                                                기타
-                                            </label>
-                                            <div class="mt-1">
-                                                <textarea class="shadow-sm focus:ring-gray-500 focus:border-gray-500 block w-full text-xs sm:text-sm border-gray-300 rounded-md"
-                                                          wire:model.defer="asdf"
-                                                          placeholder="메모 (7200자 제한)"
-                                                          maxlength="7200"
-                                                          rows="6">
-                                                </textarea>
-                                            </div>
-                                            @error('formData.memo')<p class="mt-1 text-sm text-red-500">{{ $message }}</p>@enderror
                                         </div>
                                     </div>
                                 </div>
